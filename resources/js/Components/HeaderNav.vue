@@ -1,13 +1,6 @@
 <script setup>
-	import { Head, Link } from "@inertiajs/vue3";
-	import Icon from "../Components/Icon.vue";
-
-	defineProps({
-		canLogin: Boolean,
-		canRegister: Boolean,
-		laravelVersion: String,
-		phpVersion: String,
-	});
+	import { Head, Link, usePage } from "@inertiajs/vue3";
+	import Icon from "../Components/Icons/Icon.vue";
 </script>
 
 <template>
@@ -27,24 +20,21 @@
 						<Link :href="route('welcome')" :active="route().current('welcome')" class="nav-link rounded" aria-current="page">Home</Link>
 					</li>
 					<li class="nav-item">
-						<Link :href="route('dashboard')" class="nav-link rounded" aria-current="page">Nosotros</Link>
+						<Link :href="route('about')" :active="route().current('about')" class="nav-link rounded" aria-current="page">Nosotros</Link>
 					</li>
 					<li class="nav-item">
-						<Link :href="route('dashboard')" class="nav-link rounded" aria-current="page">Soporte y ayuda</Link>
+						<Link :href="route('help')" :active="route().current('help')" class="nav-link rounded" aria-current="page">Soporte y ayuda</Link>
 					</li>
 					<li class="nav-item">
-						<Link :href="route('dashboard')" class="nav-link rounded" aria-current="page">Soporte y ayuda</Link>
-					</li>
-					<li class="nav-item">
-						<Link :href="route('dashboard')" class="nav-link rounded active" aria-current="page">Agendar demo</Link>
+						<Link :href="route('demo')" :active="route().current('demo')" class="nav-link rounded" aria-current="page">Agendar demo</Link>
 					</li>
 				</ul>
 			</div>
 
-			<div v-if="canLogin" class="navbar-brand">
+			<div v-if="$page.props.canLogin" class="navbar-brand">
 				<ul class="navbar-nav mx-auto d-flex gap-2">
 					<li class="nav-item">
-						<Link v-if="canRegister" :href="route('register')" class="auth registro nav-link  rounded" style="font-size: 1rem;">Registro</Link>
+						<Link v-if="$page.props.canRegister" :href="route('register')" class="auth registro nav-link  rounded" style="font-size: 1rem;">Registro</Link>
 					</li>
 					<li class="nav-item">
 						<Link :href="route('login')" class="auth login nav-link rounded" style="font-size: 1rem;">Login</Link>
@@ -57,7 +47,7 @@
 
 <style>
 .nav li a:hover,
-.nav li a[active] {
+.nav li a[active="true"] {
 	color: rgba(23, 21, 207, 255) !important;
 	background: rgba(194, 212, 255, 255);
 }

@@ -24,6 +24,27 @@ Route::get('/', function () {
     ]);
 })->name('welcome');
 
+Route::get('/about', function () {
+    return Inertia::render('AboutUs', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
+})->name('about');
+
+Route::get('/help', function () {
+    return Inertia::render('Help', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
+})->name('help');
+
+Route::get('/demo', function () {
+    return Inertia::render('Demo', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register')
+    ]);
+})->name('demo');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
