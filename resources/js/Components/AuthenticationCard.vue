@@ -1,11 +1,11 @@
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <slot name="logo" />
-        </div>
+	<div class="d-flex flex-column justify-content-center align-items-center pt-4 mt-4">
+		<div>
+			<slot name="logo" />
+		</div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            <slot />
-        </div>
-    </div>
+		<div class="shadow p-4 rounded" style="min-width: 400px;">
+			<slot />
+		</div>
+	</div>
 </template>

@@ -16,7 +16,7 @@
 		<HeaderNav />
 
 		<!-- Page Content -->
-		<main style="min-height: calc(100vh - 61px);">
+		<main style="min-height: calc(100vh - 61px); overflow-x: hidden;">
 			<slot />
 		</main>
 

@@ -1,21 +1,24 @@
 <script setup>
-	import { Head, Link } from "@inertiajs/vue3";
+	import { Head, Link, usePage } from "@inertiajs/vue3";
 	import CarouselContent from "../Components/CarouselContent.vue";
 	import Card from "../Components/Card.vue";
 	import ItemSkill from "../Components/ItemSkill.vue";
 	import AppLayout from "@/Layouts/AppHome.vue";
+
+	console.log(usePage().props);
 </script>
 
 <template>
 	<AppLayout title="Welcome">
+
 		<div class="bg-image mt-4">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-lg-2 g-4 align-items-center">
 					<div class="col text-black">
-						<h1>Te ayudamos a <span class="text-primary">gestionar y desarrollar</span> el conocimiento y el personal de tu organización.</h1>
+						<h1 class="fw-bold">Te ayudamos a <span style="color: #1c1cd1;">gestionar y desarrollar</span> el conocimiento y el personal de tu organización</h1>
 
-						<p>Somos un software que transforma la gestión del conocimiento en las organizaciones</p>
-						<p>Ofrecemos una plataforma intuitiva que empodera a colegios, universidades y empresas con herramientas avanzadas para la personalización, flexibilidad y estandarización del aprendizaje.</p>
+						<p class="mt-4 fs-5">Somos un software que transforma la gestión del conocimiento en las organizaciones.</p>
+						<p class="mt-4 fs-5">Ofrecemos una plataforma intuitiva que empodera a colegios, universidades y empresas con herramientas avanzadas para la personalización, flexibilidad y estandarización del aprendizaje.</p>
 					</div>
 					<div class="col">
 						<img class="image-banner d-block m-auto" src="/images/Imagen banner Principal.webp" alt="banner_principal" style="height: 420px;">
@@ -135,7 +138,7 @@
 
 			<div class="row row-cols-1 row-cols-lg-2 g-4">
 				<div class="col d-flex flex-column gap-4">
-					<h2 class="text-primary" style="width: 70%;">Con levely tus estudiantes pueden:</h2>
+					<h2 class="fw-bold" style="width: 70%; color: #1c1cd1;">Con levely tus estudiantes pueden:</h2>
 
 					<ItemSkill image="/images/Iconos Carrusel beneficios 1.webp" selected="true">
 						<template #title>
