@@ -1,7 +1,7 @@
 <script setup>
 	import { Head, Link, usePage, router } from "@inertiajs/vue3";
-	import Icon from "../Components/Icons/Icon.vue";
-	import UserIcon from "../Components/Icons/User.vue";
+	import Icon from "../Icons/Icon.vue";
+	import UserIcon from "../Icons/User.vue";
 
 	const logout = () => {
 		router.post(route("logout"));
@@ -29,6 +29,10 @@
 						</li>
 						<li class="nav-item">
 							<Link :href="route('demo')" :active="route().current('demo')" class="nav-link rounded p-2" aria-current="page">Agendar demo</Link>
+						</li>
+
+						<li v-if="$page.props.auth.user" class="nav-item">
+							<Link :href="route('demos.index')" :active="route().current('demos.index')" class="nav-link rounded p-2" aria-current="page">Demos</Link>
 						</li>
 					</ul>
 

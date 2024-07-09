@@ -1,8 +1,8 @@
 <script setup>
 	import { Head, Link, usePage } from "@inertiajs/vue3";
-	import CarouselContent from "../Components/CarouselContent.vue";
-	import Card from "../Components/Card.vue";
-	import ItemSkill from "../Components/ItemSkill.vue";
+	import CarouselContent from "@/Components/UI/CarouselContent.vue";
+	import Card from "@/Components/UI/Card.vue";
+	import ItemSkill from "@/Components/UI/ItemSkill.vue";
 	import AppLayout from "@/Layouts/AppHome.vue";
 
 	console.log(usePage().props);
@@ -172,6 +172,7 @@
 				</div>
 			</div>
 		</div>
+
 	</AppLayout>
 </template>
 

@@ -1,9 +1,9 @@
 <script setup>
-	import Icon from "../Components/Icons/Icon.vue";
-	import XIcon from "../Components/Icons/X.vue";
-	import FacebookIcon from "../Components/Icons/Facebook.vue";
-	import YoutubeIcon from "../Components/Icons/Youtube.vue";
-	import LinkedInIcon from "../Components/Icons/LinkedIn.vue";
+	import Icon from "../Icons/Icon.vue";
+	import XIcon from "../Icons/X.vue";
+	import FacebookIcon from "../Icons/Facebook.vue";
+	import YoutubeIcon from "../Icons/Youtube.vue";
+	import LinkedInIcon from "../Icons/LinkedIn.vue";
 </script>
 
 <template>
