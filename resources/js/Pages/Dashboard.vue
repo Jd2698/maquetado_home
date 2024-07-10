@@ -24,14 +24,13 @@
 	<AppLayout title="Dashboard">
 		<DataTable class="display" ajax="/demos/index" :columns="columns" :options="options">
 		</DataTable>
-	</AppLayout>
+	</AppLayout>moc
 </template>
 
 <style>
 @import "datatables.net-bs5";
 @import "datatables.net-dt";
 @import "datatables.net-responsive-dt";
-@import "datatables.net-buttons-dt";
 
 .datatable {
 	padding: 1rem;
@@ -40,5 +39,16 @@
 	margin: auto;
 	box-shadow: 0 0 10px 2px rgb(222, 218, 218);
 	border-radius: 0.5rem;
+}
+
+.pagination {
+	display: flex;
+	gap: 0.2rem;
+}
+
+.dt-paging-button {
+	box-shadow: none !important;
+	padding: 0 !important;
+	border: none !important;
 }
 </style>

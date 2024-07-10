@@ -31,7 +31,7 @@
 	<AppLayout title="Register">
 		<AuthenticationCard>
 			<template #logo>
-				<!-- <Icon width="50" /> -->
+				<Icon width="100" />
 			</template>
 
 			<form @submit.prevent="submit">

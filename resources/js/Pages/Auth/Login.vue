@@ -9,6 +9,7 @@
 	import TextInput from "@/Components/TextInput.vue";
 
 	import AppLayout from "@/Layouts/AppHome.vue";
+	import Icon from "../../Components/Icons/Icon.vue";
 
 	defineProps({
 		canResetPassword: Boolean,
@@ -35,6 +36,7 @@
 	<AppLayout title="Login">
 		<AuthenticationCard>
 			<template #logo>
+				<Icon width="100" />
 			</template>
 
 			<form @submit.prevent="submit">
@@ -51,7 +53,7 @@
 				</div>
 
 				<div class="flex items-center justify-end mt-4">
-					<PrimaryButton class="w-100" :disabled="form.processing">
+					<PrimaryButton class="w-100" :disabled="form.processing" style="background: #1c1cd1;">
 						Log in
 					</PrimaryButton>
 				</div>

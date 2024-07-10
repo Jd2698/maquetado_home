@@ -1,11 +1,8 @@
 <template>
-	<div class="d-flex flex-column justify-content-center align-items-center pt-4 mt-4">
-		<div>
+	<div class="mx-auto d-flex flex-column gap-4 shadow p-4 mt-4 rounded" style="max-width: 400px;">
+		<div class="text-end">
 			<slot name="logo" />
 		</div>
-
-		<div class="shadow p-4 rounded" style="min-width: 400px;">
-			<slot />
-		</div>
+		<slot />
 	</div>
 </template>

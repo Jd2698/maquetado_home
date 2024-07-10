@@ -1,10 +1,11 @@
 <script setup>
-	import { Head, Link, useForm } from "@inertiajs/vue3";
+	import { Head, Link, useForm, router } from "@inertiajs/vue3";
 	import { computed, ref } from "vue";
 	import AppLayout from "@/Layouts/AppHome.vue";
 
 	import { Form, Field, ErrorMessage } from "vee-validate";
 	import * as yup from "yup";
+	import Swal from "sweetalert2";
 
 	import InputError from "@/Components/InputError.vue";
 	import InputLabel from "@/Components/InputLabel.vue";
@@ -24,18 +25,29 @@
 	const schema = yup.object({
 		name: yup.string().required(),
 		lastname: yup.string().required(),
-		phone: yup.number().required(),
+		phone: yup.number().required().typeError("El número no es válido"),
 		email: yup.string().email().required(),
 		country: yup.string().required(),
 		organization: yup.string().required(),
-		puesto_trabajo: yup.string().required(),
+		puesto_trabajo: yup
+			.string()
+			.required("Puesto de trabajo is a required field"),
 	});
 
-	// Limpiar los errores
 	const submit = () => {
 		form.post(route("demos.store"), {
 			onSuccess: () => {
-				form.reset();
+				// form.reset();
+
+				Swal.fire({
+					position: "top-end",
+					icon: "success",
+					title: "¡Guardado con exito!",
+					showConfirmButton: false,
+					timer: 2000,
+				});
+
+				router.get("/demo");
 			},
 		});
 	};
@@ -45,6 +57,7 @@
 	<AppLayout title="About Us" class="bg-image">
 		<div class="container row row-cols-1 row-cols-lg-2 justify-content-between align-items-center gap-4 gap-lg-0 my-4 mx-auto p-4" style="min-height: 705px;">
 
+			<!-- text -->
 			<div class="col col-lg-5">
 				<h2 class="fw-bold" style="color: #1c1cd1;">¿Quieres ver cómo Levely puede revolucionar la gestión del conocimiento en tu organización?</h2>
 				<p class="fs-5 mt-4 pt-4">Nuestra plataforma intuitiva y flexible está diseñada para empoderar a colegios, universidades y empresas con <span class="fw-bold" style="color: #1c1cd1;">herramientas avanzadas para personalizar y estandarizar el aprendizaje.</span></p>
@@ -62,6 +75,7 @@
 
 						<Field name="name" v-slot="{ errorMessage, field }" v-model="form.name">
 							<TextInput id="name" v-model="form.name" type="text" :class="`mt-1 ${errorMessage ? 'is-invalid' : ''}`" autocomplete="username" placeholder="Ej: Maria Camila" v-bind="field" />
+
 							<span class="invalid-feedback">{{ errorMessage }}</span>
 							<InputError class="mt-2" :message="form.errors.lastname" />
 						</Field>
@@ -139,6 +153,7 @@
 						Agendar Demo
 					</button>
 				</div>
+
 			</Form>
 		</div>
 	</AppLayout>
